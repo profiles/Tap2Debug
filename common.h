@@ -1,5 +1,7 @@
 #define TROGGLE_WITH_DOUBLE_TAP 0
 
+#import <UIKit/UIKit.h>
+
 @interface UIView(findvc)
 -(UIViewController*)findViewController;
 @end

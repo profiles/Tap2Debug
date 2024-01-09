@@ -3,6 +3,10 @@
 #import "xia0.h"
 #import "common.h"
 
+#include <roothide.h>
+#define ROOT_PATH(cPath) jbroot(cPath)
+#define ROOT_PATH_NS(path) jbroot(path)
+
 @interface NSTask : NSObject
  
 - (id)init;
@@ -151,7 +155,7 @@ void show_debug_view(UIViewController* showVC, NSString* _bundleid){
             XLOG(@"arg_board is null,user default -x backboard");
             arg_board = @"-x backboard";
         }
-        XLOG(@"launch path %@",bin_serverpath);
+        XLOG(@"launch path %@",ROOT_PATH_NS(bin_serverpath));
         XLOG(@"%@ %@ %@ %@",bin_serverpath,arg_ipport,arg_exepath,arg_board);
 		NSMutableArray * args = [NSMutableArray array];
 		[args addObject:arg_ipport];
@@ -168,7 +172,7 @@ void show_debug_view(UIViewController* showVC, NSString* _bundleid){
             task = nil;
         }
         task = [[NSTask alloc]init];
-        [task setLaunchPath:bin_serverpath];
+        [task setLaunchPath:ROOT_PATH_NS(bin_serverpath)];
 		[task setArguments:args];
     	[task launch];
         [TaskManager sharedManager].runningTask = task;

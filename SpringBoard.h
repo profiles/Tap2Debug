@@ -1,3 +1,5 @@
+#import <Foundation/Foundation.h>
+
 @interface RBSProcessIdentity : NSObject
 @property(readonly, copy, nonatomic) NSString *executablePath;
 @property(readonly, copy, nonatomic) NSString *embeddedApplicationIdentifier;
